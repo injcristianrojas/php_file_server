@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo php -c php.ini -S 0.0.0.0:80
+
