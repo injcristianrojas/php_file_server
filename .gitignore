@@ -1,2 +1,4 @@
 /logs
 .vscode/*
+/files/*
+!/files/files_placed_here.txt
