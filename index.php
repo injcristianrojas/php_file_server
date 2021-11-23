@@ -1,5 +1,6 @@
 <?php
 $targetdir = './files/';
+$prefix = str_replace('./', '', $targetdir);
 
 function getDirContents($path) {
     $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
@@ -23,6 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<p>File list</p>';
 
     foreach ($files as $file) {
-        echo '<div><a href="'.$file.'">'.str_replace($targetdir, '', $file).'</a></div>';
+        echo '<div><a href="'.$file.'">'.$prefix.str_replace($targetdir, '', $file).'</a></div>';
     }
 }
