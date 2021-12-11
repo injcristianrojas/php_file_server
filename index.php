@@ -17,6 +17,7 @@ function getDirContents($path) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uploadfile = $targetdir . $_FILES['file']['name'];
     move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
+    error_log('Uploaded file: ' . realpath($uploadfile));
 } else {
     $files = getDirContents($targetdir);
     sort($files);
