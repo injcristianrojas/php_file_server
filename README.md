@@ -8,8 +8,8 @@ ability to upload files.
 
 This has been tested in PHP 7.4 (CLI). Install it before use:
 
-* In RPM-based distros (Fedora, RedHat, CentOS...): sudo dnf install php-cli
-* In DEB-based distros (Ubuntu, Debian, **Kali**...): sudo apt install php-cli
+* In RPM-based distros (Fedora, RedHat, CentOS...): `sudo dnf install php-cli`
+* In DEB-based distros (Ubuntu, Debian, **Kali**...): `sudo apt install php-cli`
 
 # Usage
 
