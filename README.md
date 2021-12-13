@@ -35,6 +35,8 @@ Powershell, call:
 
 ## File uploads
 
+### Powershell
+
 To upload files, call the root of the web server with `multipart/form-data` 
 capabilities. For instance, using Powershell's `System.Net.WebClient`:
 
@@ -47,4 +49,18 @@ Alternatively, you can use:
 ```powershell
 (New-Object System.Net.WebClient).UploadFile(
   'http://<your_ip>/', (Get-Item '<file_name>').FullName)
+```
+
+### Unix-type OS
+
+To upload files using **cURL**, launch:
+
+```bash
+curl -F file=@<file_name> http://<your_ip>/
+```
+
+If **httpie** is available, use:
+
+```bash
+http -f POST http://<your_ip>/ file@<file_name>
 ```
