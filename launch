@@ -1,4 +1,33 @@
 #!/usr/bin/env bash
 
-sudo php -c php.ini -S 0.0.0.0:80
+function print_usage()
+{
+   # Display Help
+   echo "PHP file server launcher."
+   echo
+   echo "Syntax: launch [port] [-h]"
+   echo "options:"
+   echo "port  Change listen port. Default is 80."
+   echo "h     Print this help."
+   echo
+}
 
+if [ "$1" = "-h" ]; then
+  print_usage;
+  exit 0
+fi
+
+PORT=80
+
+if [ -n "$1" ]
+  then
+    PORT=$1
+    [ -z "${PORT##*[!0-9]*}" ] && echo "Port $PORT is not numeric. Exiting..." && exit 1
+fi
+
+if [ "$PORT" -lt 1024 ] && [ "$EUID" -ne 0 ]; then
+  echo "Port numbers less than 1024 require privileged access. Exiting...";
+  exit 1;
+fi
+
+php -c php.ini -S "0.0.0.0:$PORT"
